@@ -1,0 +1,34 @@
+//
+//  PuzzleView.swift
+//  chess 2
+//
+//  Created by Yasin Onur on 23.05.2025.
+//
+
+import SwiftUI
+
+struct PuzzlesView: View {
+    @State private var path = NavigationPath([Puzzle.random()])
+    
+    @Environment(\.dismiss) var dismiss
+    
+    var body: some View {
+        NavigationStack(path: $path) {
+            Text("Done")
+                .navigationDestination(for: Puzzle.self) { puzzle in
+                    PuzzleView(puzzle: puzzle, level: path.count, dismiss: dismiss) {
+                        if path.count == 5 {
+                            dismiss()
+                        }
+                        else {
+                            path.append(Puzzle.random())
+                        }
+                    }
+                }
+        }
+    }
+}
+
+#Preview {
+    PuzzlesView()
+}

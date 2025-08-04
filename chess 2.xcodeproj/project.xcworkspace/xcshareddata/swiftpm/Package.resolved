@@ -1,0 +1,24 @@
+{
+  "originHash" : "b7519ecbde0760e9b7ecbd76400312df6de8315148b67c62d77738a2ccd01a5b",
+  "pins" : [
+    {
+      "identity" : "swift-chess",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dpedley/swift-chess",
+      "state" : {
+        "revision" : "14d9d982c8a509efcfebf696c140b0ec397daf40",
+        "version" : "1.0.8"
+      }
+    },
+    {
+      "identity" : "swift-log",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-log.git",
+      "state" : {
+        "revision" : "3d8596ed08bd13520157f0355e35caed215ffbfa",
+        "version" : "1.6.3"
+      }
+    }
+  ],
+  "version" : 3
+}
