@@ -14,6 +14,9 @@ class ChessViewModel: ObservableObject {
     @Published var legalTargets: [Square] = []
     
     @Published var lastMove: String? = nil
+    
+    @Published var from: Square?
+    @Published var to: Square?
 
     init(fen: String? = nil) {
         self.game = ChessGame(fen: fen)

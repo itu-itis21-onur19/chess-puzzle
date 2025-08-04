@@ -14,17 +14,22 @@ struct PuzzlesView: View {
     
     var body: some View {
         NavigationStack(path: $path) {
-            Text("Done")
-                .navigationDestination(for: Puzzle.self) { puzzle in
-                    PuzzleView(puzzle: puzzle, level: path.count, dismiss: dismiss) {
-                        if path.count == 5 {
-                            dismiss()
-                        }
-                        else {
-                            path.append(Puzzle.random())
-                        }
+            VStack {
+                Text("✨ You’ve unlocked all the secrets of the board! More puzzles await…")
+                Button(action: { dismiss() }) {
+                    Text("Done")
+                }
+            }
+            .navigationDestination(for: Puzzle.self) { puzzle in
+                PuzzleView(puzzle: puzzle, level: path.count, dismiss: dismiss) {
+                    if path.count == 5 {
+                        dismiss()
+                    }
+                    else {
+                        path.append(Puzzle.random())
                     }
                 }
+            }
         }
     }
 }

@@ -34,6 +34,7 @@ enum Theme: CaseIterable {
     case trappedPiece
     case mate
     case endgame
+    case unknown
 
     var text: String {
         switch self {
@@ -47,6 +48,8 @@ enum Theme: CaseIterable {
         case .trappedPiece: "Trapped Piece"
         case .mate: "Mate"
         case .endgame: "Endgame"
+        case .unknown:
+            "Unknown"
         }
     }
 
@@ -61,7 +64,9 @@ enum Theme: CaseIterable {
         case .skewer: .yellow
         case .trappedPiece: .pink
         case .mate: .purple
-        case .endgame: .gray
+        case .endgame: .cyan
+        case .unknown:
+                .gray
         }
     }
 }

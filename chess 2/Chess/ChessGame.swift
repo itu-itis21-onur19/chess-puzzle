@@ -92,10 +92,30 @@ class ChessGame {
         board[to] = movingPiece
         board[from] = nil
         currentPlayer = (currentPlayer == .white) ? .black : .white
-        return pgnNotation(for: movingPiece.role) + to.notation
+        return from.notation + to.notation
+        // return pgnNotation(for: movingPiece.role) + to.notation
     }
     
-    func makeMove(pgn: String) {
+    func makeMove2(pgn: String) -> (from: Square, to: Square)? {
+        guard pgn.count == 4 else {
+            print("Invalid PGN format")
+            return nil
+        }
+
+        let fromPGN = String(pgn.prefix(2))  // e.g. "g2"
+        let toPGN = String(pgn.suffix(2))   // e.g. "f3"
+
+        guard let from = Square(notation: fromPGN), let to = Square(notation: toPGN) else {
+            print("Invalid square notation")
+            return nil
+        }
+        
+        print("Making move: \(from) \(to)")
+        makeMove(from: from, to: to)
+        return (from, to)
+    }
+    
+    func makeMove(pgn: String) -> (from: Square, to: Square)?  {
         // Handle only simple PGN like "e4", "Nf3", "Qh5", "Rxa7", etc.
         let fileLetters = "abcdefgh"
         let rankNumbers = "12345678"
@@ -130,7 +150,7 @@ class ChessGame {
               let file = fileLetters.firstIndex(of: fileChar)?.utf16Offset(in: fileLetters),
               let rank = Int(String(rankChar)).map({ $0 - 1 }),
               let toSquare = Square(file: file, rank: rank) else {
-            return
+            return nil
         }
 
         // Find matching piece of correct role and color that can move there
@@ -140,9 +160,10 @@ class ChessGame {
             let moves = legalMoves(from: fromSquare)
             if moves.contains(toSquare) {
                 _ = makeMove(from: fromSquare, to: toSquare)
-                return
+                return (fromSquare, toSquare)
             }
         }
+        return nil
     }
 
     func isCheckmate() -> Bool {

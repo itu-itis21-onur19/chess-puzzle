@@ -15,11 +15,7 @@ struct Puzzle: Hashable {
     let type: PuzzleType = .ai
     
     static func random() -> Puzzle {
-        let puzzles = [
-            Puzzle(FEN: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", move: "e3", theme: .doubleCheck),
-        ]
-        
-        return puzzles.randomElement()!
+        return Puzzle.all.randomElement()!
     }
 
 }

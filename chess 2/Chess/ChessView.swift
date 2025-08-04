@@ -22,6 +22,8 @@ struct ChessView: View {
                                 .fill(
                                     viewModel.selectedSquare == square ?
                                         .green.opacity(0.5) :
+                                        viewModel.from == square || viewModel.to == square ?
+                                        .red.opacity(0.5) :
                                         viewModel.legalTargets.contains(where: { $0.index == square.index }) ?
                                         .yellow.opacity(0.5) :
                                             .clear)
