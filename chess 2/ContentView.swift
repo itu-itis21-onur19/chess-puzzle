@@ -62,7 +62,7 @@ struct ContentView: View {
                 .shadow(radius: 12)
                 .padding()
                 .fullScreenCover(isPresented: $puzzleStarted) {
-                    PuzzlesView()
+                    PuzzlesView(theme: theme)
                 }
                 Spacer()
             }

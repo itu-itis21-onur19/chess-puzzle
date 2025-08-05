@@ -14,8 +14,11 @@ struct Puzzle: Hashable {
     let theme: Theme
     let type: PuzzleType = .ai
     
-    static func random() -> Puzzle {
-        return Puzzle.all.randomElement()!
+    static func random(theme: Theme? = nil) -> Puzzle {
+        return Puzzle.all.filter({
+            theme == nil ||
+            $0.theme == theme
+        }).randomElement()!
     }
 
 }
