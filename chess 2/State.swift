@@ -72,7 +72,7 @@ enum Theme: CaseIterable {
 }
 
 enum PuzzleType {
-    case regular, ai
+    case regular, generated
 }
 
 enum ChessColor {

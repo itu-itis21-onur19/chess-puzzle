@@ -8,7 +8,7 @@
 import Foundation
 
 extension Puzzle {
-    static let all: [Puzzle] = [
+    static let regular: [Puzzle] = [
         Puzzle(FEN: "8/8/8/pp1k2pp/3p4/PP1K1PPP/8/8 b - - 0 44", move: "d5c5 h3h4 g5h4 g3h4 c5d5 f3f4 d5c5 f4f5 c5d5 f5f6", theme: .endgame),
         Puzzle(FEN: "r1b2b1r/pp1pk3/4pNq1/4P1p1/8/8/PP1Q2PP/R4RK1 b - - 1 20", move: "e7d8 a1c1 b7b6 b2b4", theme: .unknown),
         Puzzle(FEN: "1r4k1/p4ppp/2B1pn2/8/6PP/2q1bP2/6K1/1R1QR3 b - - 0 27", move: "b8b1 d1d8 f6e8 d8e8", theme: .mate),

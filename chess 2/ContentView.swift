@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
-import Chess
 
 struct ContentView: View {
     @AppStorage("name") private var name: String = ""
     
     @State private var phase: AppState = .welcome
     @State private var theme: Theme? = nil
+    @State private var type: PuzzleType = .regular
     
     @State private var puzzleStarted: Bool = false
     
@@ -32,8 +32,8 @@ struct ContentView: View {
                     .font(.subheadline)
                     
                     if phase == .pickType {
-                        AppButton(text: "Generated", colors: [.blue], short: false) { phase = .pickLevel }
-                        AppButton(text: "Regular", colors: [.green], short: false) { phase = .pickLevel }
+                        AppButton(text: "Generated", colors: [.blue], short: false) { type = .generated ; phase = .pickLevel }
+                        AppButton(text: "Regular", colors: [.green], short: false) { type = .regular ; phase = .pickLevel }
                     }
                     else if phase == .pickLevel {
                         AppButton(text: "Themed", colors: [.mint, .blue], short: false) { phase = .pickTheme }
@@ -62,7 +62,7 @@ struct ContentView: View {
                 .shadow(radius: 12)
                 .padding()
                 .fullScreenCover(isPresented: $puzzleStarted) {
-                    PuzzlesView(theme: theme)
+                    PuzzlesView(type: type, theme: theme)
                         .colorScheme(.light)
                 }
                 Spacer()

@@ -12,10 +12,12 @@ struct Puzzle: Hashable {
     let move: String
     
     let theme: Theme
-    let type: PuzzleType = .ai
+    let type: PuzzleType = .regular
     
-    static func random(theme: Theme? = nil) -> Puzzle {
-        return Puzzle.all.filter({
+    static func random(type: PuzzleType, theme: Theme? = nil) -> Puzzle {
+        let list = type == .regular ? Puzzle.regular : Puzzle.generated
+        
+        return list.filter({
             theme == nil ||
             $0.theme == theme
         }).randomElement()!

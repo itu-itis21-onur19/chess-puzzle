@@ -38,7 +38,6 @@ struct PuzzleView: View {
         viewModel.set(fen: puzzle.FEN)
         
         print(puzzle.move.components(separatedBy: " ").first)
-        print()
 
         if let move = puzzle.move.components(separatedBy: " ").first, let (from, to) = viewModel.game.makeMove2(pgn: move) {
             viewModel.from = from
@@ -107,7 +106,7 @@ struct PuzzleView: View {
         }
         .onChange(of: viewModel.lastMove, { _, move in
             if let move {
-                if puzzle.move.components(separatedBy: " ").contains(move) {
+                if puzzle.move.components(separatedBy: " ").first == move {
                     phase = .correct
                     print("correct move")
                 }

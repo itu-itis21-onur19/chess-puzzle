@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PuzzlesView: View {
+    let type: PuzzleType
     let theme: Theme?
     @State private var path = NavigationPath()
     
@@ -27,12 +28,12 @@ struct PuzzlesView: View {
                         dismiss()
                     }
                     else {
-                        path.append(Puzzle.random(theme: theme))
+                        path.append(Puzzle.random(type: type, theme: theme))
                     }
                 }
             }
             .onAppear {
-                path.append(Puzzle.random(theme: theme))
+                path.append(Puzzle.random(type: type, theme: theme))
             }
         }
     }
