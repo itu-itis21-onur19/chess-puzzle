@@ -24,10 +24,10 @@ enum PuzzleState {
 }
 
 enum Theme: CaseIterable {
-    case captureTheDefender
+    // case captureTheDefender
     case discoveredAttack
     case doubleCheck
-    case kingHunt
+    // case kingHunt
     case fork
     case pin
     case skewer
@@ -38,10 +38,10 @@ enum Theme: CaseIterable {
 
     var text: String {
         switch self {
-        case .captureTheDefender: "Capture the Defender"
+        // case .captureTheDefender: "Capture the Defender"
         case .discoveredAttack: "Discovered Attack"
         case .doubleCheck: "Double Check"
-        case .kingHunt: "King Hunt"
+        // case .kingHunt: "King Hunt"
         case .fork: "Fork"
         case .pin: "Pin"
         case .skewer: "Skewer"
@@ -55,10 +55,10 @@ enum Theme: CaseIterable {
 
     var color: Color {
         switch self {
-        case .captureTheDefender: .blue
+        // case .captureTheDefender: .blue
         case .discoveredAttack: .indigo
         case .doubleCheck: .orange
-        case .kingHunt: .red
+        // case .kingHunt: .red
         case .fork: .mint
         case .pin: .teal
         case .skewer: .yellow

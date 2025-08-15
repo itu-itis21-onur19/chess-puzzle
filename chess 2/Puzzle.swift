@@ -20,7 +20,7 @@ struct Puzzle: Hashable {
         return list.filter({
             theme == nil ||
             $0.theme == theme
-        }).randomElement()!
+        }).randomElement() ?? .regular.randomElement()!
     }
 
 }

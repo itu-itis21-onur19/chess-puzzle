@@ -67,6 +67,9 @@ struct ContentView: View {
                 }
                 Spacer()
             }
+            .onChange(of: theme, { oldValue, newValue in
+                print("Theme changed to \(newValue)")
+            })
             .animation(.easeInOut, value: phase)
             .background(
                 LinearGradient(colors: [.purple, .pink], startPoint: .topLeading, endPoint: .bottomTrailing)

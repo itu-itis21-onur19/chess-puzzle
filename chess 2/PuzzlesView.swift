@@ -23,8 +23,8 @@ struct PuzzlesView: View {
                 }
             }
             .navigationDestination(for: Puzzle.self) { puzzle in
-                PuzzleView(puzzle: puzzle, level: path.count, dismiss: dismiss) {
-                    if path.count == 5 {
+                PuzzleView(puzzle: puzzle, level: path.count + 1, dismiss: dismiss) {
+                    if path.count == 4 {
                         dismiss()
                     }
                     else {

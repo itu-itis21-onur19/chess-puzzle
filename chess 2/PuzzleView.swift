@@ -15,8 +15,6 @@ struct PuzzleView: View {
     
     @State var phase: PuzzleState = .start
     
-    @State var round: Int = 0
-    
     init(puzzle: Puzzle, level: Int, dismiss: DismissAction, next: @escaping () -> Void) {
         self.puzzle = puzzle
         self.level = level
